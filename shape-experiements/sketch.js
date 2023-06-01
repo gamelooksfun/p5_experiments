@@ -13,7 +13,15 @@ function draw() {
     for (var graphX = 0; graphX < graphPaper; graphX++) {
       var posX = graphX * (width / graphPaper);
       var posY = graphY * (height / graphPaper);
-      line(posX, posY, posX + (width / graphPaper), posY + (height / graphPaper));
-}
-}
+      // create a variable that defines if line faces left or right
+      var direction = graphX;
+      // conditional that defines if line faces left or right based on modulo of graphX
+      if (direction % 2 == 0) {
+        line(posX, posY, posX + (width / graphPaper), posY + (height / graphPaper)); 
+      }
+      else {
+        line(posX + (width / graphPaper), posY, posX, posY + (height / graphPaper));
+      }
+    }
+  }
 }
