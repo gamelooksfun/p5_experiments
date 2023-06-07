@@ -23,7 +23,7 @@ function draw() {
   selectedGenre = genreHues["Electronic"];
   // TODO selectedGenre = random(Object.keys(genreHues));
   // print selected genre to console
-  console.log(selectedGenre);
+  print(selectedGenre);
   // draw and fill tiles, beginning with uppper left corner of canvas (0,0)
   var xVertex = 0;
     for (var i = 0; i < tileSaturation.length; i++) {
