@@ -1,21 +1,21 @@
 // My version
 
 // Setup global variables
-var noiseResolution = 0.003;
-var noiseGrid = 3;
+var noiseResolution = .03;
+var noiseGrid = 4;
 
 // Setup colors object
 const colors = {
-col0 : [255, 255, 255],
-col1 : [0, 0, 0],
-col2 : [255, 0, 0],
-col3 : [0, 255, 0],
-col4 : [0, 0, 255],
-col5 : [255, 255, 0],
-col6 : [255, 0, 255],
-col7 : [0, 255, 255],
-col8 : [255, 255, 255],
-col9 : [0, 0, 0],
+col0 : [255, 229, 236],
+col1 : [7, 190, 184],
+col2 : [70, 18, 32],
+col3 : [242, 92, 84],
+col4 : [175, 43, 191],
+col5 : [255, 247, 94],
+col6 : [5, 74, 41],
+col7 : [6, 26, 64],
+col8 : [181, 150, 229],
+col9 : [89, 89, 89],
 }
 
 // Setup canvases
@@ -72,19 +72,19 @@ function finalDrawing() {
     colVary = 15;
     for (i = 0; i < width; i += noiseGrid * 2.5) {
       for (j = 0; j < height; j += noiseGrid * 2.5) {
-        angCol = cnv1.get(i, j);
-        ang = angCol[0] / 255 * PI * 2;
-        col = cnv2.get(i, j);
-        //stroke(col,250);
-        stroke(col[0]+random(-colVary,colVary),
-               col[1]+random(-colVary,colVary),
-               col[2]+random(-colVary,colVary),
-               250);
-        push();
-        translate(i, j);
-        rotate(ang);
-        line(0, 0, noiseGrid, 0);
-        pop();
-      }
+            angCol = cnv1.get(i, j);
+            ang = angCol[0] / 255 * PI * 2;
+            col = cnv2.get(i, j);
+            //stroke(col,250);
+            stroke(col[0]+random(-colVary,colVary),
+                col[1]+random(-colVary,colVary),
+                col[2]+random(-colVary,colVary),
+                255);
+            push();
+            translate(i, j);
+            rotate(ang);
+            line(0,0,noiseGrid,0);
+            pop();
+        }
     }
-  }
+}
