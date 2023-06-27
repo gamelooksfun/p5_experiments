@@ -1,7 +1,23 @@
 // My version
+
 // Setup global variables
 var noiseResolution = 0.003;
 var noiseGrid = 3;
+
+// Setup colors object
+const colors = {
+col0 : [255, 255, 255],
+col1 : [0, 0, 0],
+col2 : [255, 0, 0],
+col3 : [0, 255, 0],
+col4 : [0, 0, 255],
+col5 : [255, 255, 0],
+col6 : [255, 0, 255],
+col7 : [0, 255, 255],
+col8 : [255, 255, 255],
+col9 : [0, 0, 0],
+}
+
 // Setup canvases
 function setup() {
     // Constant seed creates a consistent Perlin noise and random number sequence
@@ -39,14 +55,16 @@ function noiseCanvas() {
 // Object buffer creates a series of 5 circles with random size and position
 // Also determines color, but want to separate this into a new canvas
 function objectCanvas() {
-    cnv2.colorMode(HSB,360,120,100,255);
-    cnv2.background(random(90,240),40,random(40,80));
-    // cnv2.noStroke();
+    //cnv2.colorMode(HSB,360,120,100,255);
+    //cnv2.background(random(90,240),40,random(40,80));
+    cnv2.background(255);
     for (i = 0; i < 10; i++) {
       x = random(width);
       y = random(height);
       size = random(100,200);
-      cnv2.fill(random(90,240), random(70,90),random(55,85),250);
+      //cnv2.fill(col1[0], col1[1], col1[2], 250);
+      currentFill = Object.values(colors)[i];
+      cnv2.fill(currentFill, 250);
       cnv2.circle(x, y, size);
     //   cnv1.fill(random(255),120);
     //   cnv1.circle(x,y,size);
