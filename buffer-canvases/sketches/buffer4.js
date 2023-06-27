@@ -21,7 +21,7 @@ col9 : [0, 0, 0],
 // Setup canvases
 function setup() {
     // Constant seed creates a consistent Perlin noise and random number sequence
-    seed = 1000;
+    seed = 1234;
     noiseSeed(seed);
     randomSeed(seed);
     // Create initial canvas, noise buffer and object buffer
@@ -55,19 +55,14 @@ function noiseCanvas() {
 // Object buffer creates a series of 5 circles with random size and position
 // Also determines color, but want to separate this into a new canvas
 function objectCanvas() {
-    //cnv2.colorMode(HSB,360,120,100,255);
-    //cnv2.background(random(90,240),40,random(40,80));
     cnv2.background(255);
     for (i = 0; i < 10; i++) {
       x = random(width);
       y = random(height);
       size = random(100,200);
-      //cnv2.fill(col1[0], col1[1], col1[2], 250);
       currentFill = Object.values(colors)[i];
       cnv2.fill(currentFill, 250);
       cnv2.circle(x, y, size);
-    //   cnv1.fill(random(255),120);
-    //   cnv1.circle(x,y,size);
     }
   }
 
