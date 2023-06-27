@@ -1,7 +1,7 @@
 // My version
 // Setup global variables
 var noiseResolution = 0.003;
-var noiseGrid = 1;
+var noiseGrid = 3;
 // Setup canvases
 function setup() {
     // Constant seed creates a consistent Perlin noise and random number sequence
@@ -10,6 +10,7 @@ function setup() {
     randomSeed(seed);
     // Create initial canvas, noise buffer and object buffer
     createCanvas(400, 400);
+    // background(255);
     cnv1 = createGraphics(400, 400);
     cnv1.noStroke();
     cnv2 = createGraphics(400, 400);
@@ -17,9 +18,9 @@ function setup() {
     // Hoist drawing functions
     noiseCanvas();
     objectCanvas();
-    // finalDrawing();
+    finalDrawing();
     // Test image
-    image(cnv2, 0, 0);
+    // image(cnv2, 0, 0);
 }
 
 // Noise buffer creates a grayscale noise field across the entire 400px cnv1
@@ -49,5 +50,28 @@ function objectCanvas() {
       cnv2.circle(x, y, size);
     //   cnv1.fill(random(255),120);
     //   cnv1.circle(x,y,size);
+    }
+  }
+
+function finalDrawing() {
+    background(255);
+    strokeWeight(7);
+    colVary = 15;
+    for (i = 0; i < width; i += noiseGrid * 2.5) {
+      for (j = 0; j < height; j += noiseGrid * 2.5) {
+        angCol = cnv1.get(i, j);
+        ang = angCol[0] / 255 * PI * 2;
+        col = cnv2.get(i, j);
+        //stroke(col,250);
+        stroke(col[0]+random(-colVary,colVary),
+               col[1]+random(-colVary,colVary),
+               col[2]+random(-colVary,colVary),
+               250);
+        push();
+        translate(i, j);
+        rotate(ang);
+        line(0, 0, noiseGrid, 0);
+        pop();
+      }
     }
   }
