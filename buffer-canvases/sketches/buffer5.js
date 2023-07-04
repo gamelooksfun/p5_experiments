@@ -29,12 +29,12 @@ function setup() {
     cnv1.noStroke();
     cnv2 = createGraphics(400, 400);
     cnv2.noStroke();
-    // Hoist(?) drawing functions
+    // Hoist (?) drawing functions
     noiseCanvas();
     objectCanvas();
     finalDrawing();
     // Test image
-    // image(cnv1, 0, 0);
+    // image(cnv2, 0, 0);
 }
 
 // Noise buffer creates a grayscale noise field across the entire 400px cnv1
@@ -51,7 +51,6 @@ function noiseCanvas() {
 }
 
 // Object buffer creates a series of 5 circles with random size and position
-// Also determines color, but want to separate this into a new canvas
 function objectCanvas() {
     cnv2.background(255);
     for (i = 0; i < 10; i++) {
@@ -86,3 +85,8 @@ function finalDrawing() {
         }
     }
 }
+
+// TO DO
+// Expand color palette
+// Convert to HSV
+// Correlate size to # of mints
