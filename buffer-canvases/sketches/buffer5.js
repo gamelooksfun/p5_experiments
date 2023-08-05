@@ -20,7 +20,7 @@ col9 : [89, 89, 89],
 // Setup canvases
 function setup() {
     // Constant seed creates a consistent Perlin noise and random number sequence
-    seed = 9;
+    seed = 60;
     noiseSeed(seed);
     randomSeed(seed);
     // Create initial canvas, noise buffer and object buffer
